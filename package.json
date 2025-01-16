@@ -1,0 +1,30 @@
+{
+  "name": "namastereactshru",
+  "version": "1.0.0",
+  "description": "",
+  
+  "scripts": {
+    "start":"parcel index.html",
+    "build":"parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shivam2p/Namastereact.git"
+  },
+  "keywords": [],
+  "author": "Shivam Pandey",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.13.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "browserslist":[
+    "last 2 chrome version",
+    "last 2 firefox version"
+  ]
+}

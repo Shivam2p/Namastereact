@@ -16,13 +16,11 @@ const RestaurantCard=(props)=>{
       const {slaString}=resdata.sla;
    
       return (
-      <div className="res-card" style={{
-        backgroundColor: "#f0f0f0",
-      }}>
-        <img className="res-logo" src={ Cdn_url +cloudinaryImageId }
+      <div className="res-card m-4 p-4 w-[260px] rounded-xl bg-gray-300 hover:bg-gray-400 transiton" >
+        <img className="res-logo rounded-xl" src={ Cdn_url +cloudinaryImageId }
           alt="Biryani"
           />
-        <h3>{name}</h3>
+        <h3 className='font-bold py-5 text-xl'>{name}</h3>
         <h4>{cuisines.join(', ')}</h4>
         <h4>{avgRating} ⭐</h4>
         <h4>{costForTwo} </h4>

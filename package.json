@@ -2,10 +2,9 @@
   "name": "namastereactshru",
   "version": "1.0.0",
   "description": "",
-  
   "scripts": {
-    "start":"parcel index.html",
-    "build":"parcel build index.html",
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {
@@ -20,10 +19,14 @@
     "process": "^0.11.10"
   },
   "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "@tailwindcss/postcss": "^4.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router": "^6.15.0",
+    "react-router-dom": "^6.15.0",
+    "tailwindcss": "^4.0.0"
   },
-  "browserslist":[
+  "browserslist": [
     "last 2 chrome version",
     "last 2 firefox version"
   ]

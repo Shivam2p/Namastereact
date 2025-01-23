@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
 import RestaurantCard from './RestaurantCard';
-import resList from '../utils/mockdata';
+import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Shimmer from './Shimmer';
+import useOnlineStatus from '../utils/useOnlineStatus';
 
 
 
@@ -24,16 +25,22 @@ const Body=()=>{
     setfilteredRestaurant(  jsona?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   }
 
+  const onlineStatus=useOnlineStatus();
+
+  if(onlineStatus===false){ return (<div>
+    <h1>internet not connected</h1>
+  </div>) }
+
       // console.log(listOfRestaurants);
     return listOfRestaurants?.length===0?(<Shimmer/>):(
       <div className="body">
-        <div className="filter">
-          <div className='search'>
-            <input type='text' className='searchbox' value={searchText} 
+        <div className="filter flex">
+          <div className='search m-4 p-4'>
+            <input type='text' className='border border-solid border-black' value={searchText} 
              onChange={(e)=>{
               setsearchText(e.target.value);
              }} ></input>
-            <button onClick={()=>{
+            <button className='px-4 py-1 bg-blue-300 m-4 rounded-lg hover:bg-blue-600 transition' onClick={()=>{
                const filteredresturant= listOfRestaurants.filter((res)=>{
                 // console.log(res.info)
                  return res.info.name.toLowerCase().includes(searchText.toLowerCase());
@@ -42,22 +49,25 @@ const Body=()=>{
             }}>Search</button>
     
           </div>
-        <button className='filter-btn' onClick={()=>{
+          <div className='m-4 p-4 flex items-center ml-240'>
+        <button className=' px-4 py-2 bg-blue-300 rounded-lg hover:bg-blue-600 transition' onClick={()=>{
            const filteredList = listOfRestaurants.filter(
             (res) => res.info.avgRating > 4
           );
           setfilteredRestaurant(filteredList);
         
-        }}>Top Rated</button>
+        }}>Top Rated</button></div>
         </div>
-        <div className="res-container">
+        <div className="flex flex-wrap">
   {
   
   filteredRestaurant?.map((restu,index)=>
    
          {
           // console.log(restu)
-          return <RestaurantCard key={restu.info.id} resdata={restu.info}/>}
+         return <Link to={'/resturant/'+restu.info.id} key={restu.info.id}  >    <RestaurantCard  resdata={restu.info}/></Link>
+        
+         }
     )}
   
   

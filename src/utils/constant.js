@@ -2,3 +2,5 @@
 
  export   const Logo_url="https://www.svgrepo.com/show/503637/fast-food.svg";
 
+ export const menuApi="https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=26.2124007&lng=78.1772053&restaurantId=";
+
